@@ -7,7 +7,7 @@ import { resolvers } from './src/resolvers';
 
 const PORT = process.env.PORT || 4000;
 const USER_NAME_DB = 'secret211199'
-const PASSWORD_DB = 'VbEpDLSbWIsAztpA'
+const PASSWORD_DB = 'oUZkBLCEVqvPT4re'
 const MONGODB_URI = process.env.MONGODB_URI || `mongodb+srv://${USER_NAME_DB}:${PASSWORD_DB}@double-d-db.6m96m.mongodb.net/`;
 
 async function startServer() {
