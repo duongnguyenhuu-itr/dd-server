@@ -20,4 +20,6 @@ const productSchema: Schema = new Schema({
   price: { type: Number, required: true },
 });
 
+productSchema.index({ createdAt: -1 });
+
 export const Product = mongoose.model<IProduct>('Product', productSchema);

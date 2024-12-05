@@ -1,3 +1,4 @@
+import { IUser, IUserInput, User } from "../controllers/user/user.model";
 import { IProduct, IProductInput, Product } from "../models/Product";
 
 export const resolvers = {
@@ -15,6 +16,23 @@ export const resolvers = {
       const product = new Product({ name, description, price });
       await product.save();
       return product;
+    },
+    createUser: async (_: any, request: IUserInput): Promise<IUser> => {
+      const { email, password, firstName, lastName, imageUrl, clerkId} = request.input || {}
+      console.log('input', request.input);
+      if(!email || !password) {
+        throw new Error('Email and password are required')
+      }
+      const user = new User({ 
+        email,
+        password,
+        firstName,
+        lastName,
+        imageUrl,
+        clerkId
+      });
+      await user.save();
+      return user;
     },
   },
 };

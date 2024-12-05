@@ -8,18 +8,37 @@ export const typeDefs = gql`
     description: String
   }
 
-  type Query {
-    product(id: ID!): Product,
-    products: [Product!]!
-  }
-
   input CreateProductInput {
     name: String!, 
     description: String, 
     price: Float!
   }
 
+  input CreateUserInput {
+    email: String!, 
+    password: String!,
+    firstName: String,
+    lastName: String,
+    imageUrl: String,
+    clerkId: String
+  }
+
+  type User {
+    id: ID!
+    email: String!
+    firstName: String
+    lastName: String
+    imageUrl: String
+    clerkId: String
+  }
+
+  type Query {
+    product(id: ID!): Product,
+    products: [Product!]!
+  }
+
   type Mutation {
-    createProduct( input: CreateProductInput ): Product
+    createProduct( input: CreateProductInput ): Product,
+    createUser( input: CreateUserInput ): User
   }
 `;
