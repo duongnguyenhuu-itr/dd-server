@@ -18,14 +18,13 @@ export const resolvers = {
       return product;
     },
     createUser: async (_: any, request: IUserInput): Promise<IUser> => {
-      const { email, password, firstName, lastName, imageUrl, clerkId} = request.input || {}
+      const { email, firstName, lastName, imageUrl, clerkId} = request.input || {}
       console.log('input', request.input);
-      if(!email || !password) {
-        throw new Error('Email and password are required')
+      if(!email) {
+        throw new Error('Email is required')
       }
       const user = new User({ 
         email,
-        password,
         firstName,
         lastName,
         imageUrl,

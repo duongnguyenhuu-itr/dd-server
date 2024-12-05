@@ -16,7 +16,6 @@ export const typeDefs = gql`
 
   input CreateUserInput {
     email: String!, 
-    password: String!,
     firstName: String,
     lastName: String,
     imageUrl: String,
